@@ -2,6 +2,7 @@ package pedro.zandonai.CryptoExchangeSimulator.domain.models;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @MappedSuperclass
@@ -9,14 +10,11 @@ public abstract class AssetOperations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
-    private User user;
-    @OneToOne
-    private Asset asset;
     private int amount;
-    private double totalAmount;
+    @Column(precision = 13, scale = 2)
+    private BigDecimal totalAmount;
     private Date date;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Taxes taxes;
 
     public Long getId() {
@@ -27,22 +25,6 @@ public abstract class AssetOperations {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Asset getAsset() {
-        return asset;
-    }
-
-    public void setAsset(Asset asset) {
-        this.asset = asset;
-    }
-
     public int getAmount() {
         return amount;
     }
@@ -51,11 +33,11 @@ public abstract class AssetOperations {
         this.amount = amount;
     }
 
-    public double getTotalAmount() {
+    public BigDecimal getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(double totalAmount) {
+    public void setTotalAmount(BigDecimal totalAmount) {
         this.totalAmount = totalAmount;
     }
 
