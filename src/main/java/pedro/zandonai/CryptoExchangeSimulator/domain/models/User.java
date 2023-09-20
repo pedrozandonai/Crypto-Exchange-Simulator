@@ -10,17 +10,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String celular;
+    private String cellphoneNumber;
+    @Column(unique = true)
     private String email;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Address address;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Asset> assets;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private BuyAsset buyAsset;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private SellAsset sellAsset;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Resources resources;
 
     public Long getId() {
@@ -39,12 +40,12 @@ public class User {
         this.name = name;
     }
 
-    public String getCelular() {
-        return celular;
+    public String getCellphoneNumber() {
+        return cellphoneNumber;
     }
 
-    public void setCelular(String celular) {
-        this.celular = celular;
+    public void setCellphoneNumber(String celular) {
+        this.cellphoneNumber = celular;
     }
 
     public String getEmail() {
