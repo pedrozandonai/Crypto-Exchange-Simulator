@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import pedro.zandonai.CryptoExchangeSimulator.domain.models.coinmarketcapapi.CryptoData;
 
 @RestController
 @RequestMapping("/crypto")
@@ -19,7 +20,7 @@ public class CryptoController {
     private String apiKey;
 
     @GetMapping("/{symbol}")
-    public ResponseEntity<Object> getCryptoData(@PathVariable String symbol) {
+    public ResponseEntity<CryptoData> getCryptoData(@PathVariable String symbol) {
         String url = "https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?symbol=" + symbol.toUpperCase();
 
         HttpHeaders headers = new HttpHeaders();
@@ -28,8 +29,12 @@ public class CryptoController {
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<Object> response = restTemplate.exchange(url, HttpMethod.GET, entity, Object.class);
+        ResponseEntity<CryptoData> response = restTemplate.exchange(url, HttpMethod.GET, entity, CryptoData.class);
 
-        return response;
+        CryptoData cryptoData = response.getBody();
+
+        // Agora você tem os dados da API no objeto cryptoData
+
+        return ResponseEntity.ok(cryptoData);
     }
 }

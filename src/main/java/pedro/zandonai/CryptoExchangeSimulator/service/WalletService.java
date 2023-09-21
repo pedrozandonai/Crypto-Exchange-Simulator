@@ -9,7 +9,7 @@ public interface WalletService {
     Wallet addBalance(Wallet wallet, double balance);
     Wallet addAssetToWallet(Wallet wallet, Asset asset);
     Wallet removeAssetFromWallet(Wallet wallet, Asset asset);
-    Asset getAssetFromWallet(Wallet wallet, String ticker);
     Wallet balance(Wallet wallet);
-
+    Asset getAssetBySymbol(Wallet wallet, String symbol);
+    Wallet updateAssetInWallet(Wallet wallet, Asset userAsset);
 }

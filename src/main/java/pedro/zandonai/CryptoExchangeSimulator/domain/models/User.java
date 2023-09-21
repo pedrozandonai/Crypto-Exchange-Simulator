@@ -1,5 +1,6 @@
 package pedro.zandonai.CryptoExchangeSimulator.domain.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity(name = "tb_user")

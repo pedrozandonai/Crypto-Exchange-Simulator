@@ -1,5 +1,6 @@
 package pedro.zandonai.CryptoExchangeSimulator.domain.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,8 +12,9 @@ public class Asset {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String ticker;
+    private String symbol;
     private int quantity;
+    @JsonIgnore
     private double price;
 
     public Long getId() {
@@ -31,12 +33,12 @@ public class Asset {
         this.name = name;
     }
 
-    public String getTicker() {
-        return ticker;
+    public String getSymbol() {
+        return symbol;
     }
 
-    public void setTicker(String ticker) {
-        this.ticker = ticker;
+    public void setSymbol(String ticker) {
+        this.symbol = ticker;
     }
 
     public int getQuantity() {

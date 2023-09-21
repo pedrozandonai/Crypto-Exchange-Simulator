@@ -12,6 +12,7 @@ import pedro.zandonai.CryptoExchangeSimulator.service.WalletService;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/users")
@@ -62,16 +63,16 @@ public class UserController {
     }
 
     @PostMapping("/{id}/buy-asset")
-    public ResponseEntity<Asset> buyAsset(@PathVariable Long id,@RequestBody Asset assetToBuy){
+    public ResponseEntity<Asset> buyAsset(@PathVariable Long id, @RequestBody Asset assetToBuy) {
         User user = userService.findById(id);
-        Asset buyAsset = assetService.buy(assetToBuy, user);
+        Asset buyAsset = assetService.buy(assetToBuy.getSymbol(), assetToBuy.getQuantity(), user);
         return ResponseEntity.ok(buyAsset);
     }
 
     @PostMapping("/{id}/sell-asset")
-    public ResponseEntity<Asset> sellAsset(@PathVariable Long id,@RequestBody Asset assetToBuy){
+    public ResponseEntity<Asset> sellAsset(@PathVariable Long id, @RequestBody Asset assetToSell) {
         User user = userService.findById(id);
-        Asset sellAsset = assetService.sell(assetToBuy, user);
+        Asset sellAsset = assetService.sell(assetToSell.getSymbol(), assetToSell.getQuantity(), user);
         return ResponseEntity.ok(sellAsset);
     }
 }
