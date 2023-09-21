@@ -12,8 +12,8 @@ public class Asset {
     private Long id;
     private String name;
     private String ticker;
+    private int quantity;
     private double price;
-    private double marketCap;
 
     public Long getId() {
         return id;
@@ -39,6 +39,14 @@ public class Asset {
         this.ticker = ticker;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     public double getPrice() {
         return price;
     }
@@ -47,11 +55,4 @@ public class Asset {
         this.price = price;
     }
 
-    public double getMarketCap() {
-        return marketCap;
-    }
-
-    public void setMarketCap(double marketCap) {
-        this.marketCap = marketCap;
-    }
 }
