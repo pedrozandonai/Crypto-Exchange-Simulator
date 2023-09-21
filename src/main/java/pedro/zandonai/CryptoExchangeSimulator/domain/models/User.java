@@ -2,8 +2,6 @@ package pedro.zandonai.CryptoExchangeSimulator.domain.models;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity(name = "tb_user")
 public class User {
     @Id
@@ -15,13 +13,9 @@ public class User {
     private String email;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Address address;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Asset> assets;
-    @OneToOne(cascade = CascadeType.ALL)
-    private BuyAsset buyAsset;
-    @OneToOne(cascade = CascadeType.ALL)
-    private SellAsset sellAsset;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Wallet userWallet;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Resources resources;
 
     public Long getId() {
@@ -64,28 +58,12 @@ public class User {
         this.address = address;
     }
 
-    public List<Asset> getAssets() {
-        return assets;
+    public Wallet getUserWallet() {
+        return userWallet;
     }
 
-    public void setAssets(List<Asset> assets) {
-        this.assets = assets;
-    }
-
-    public BuyAsset getBuyAsset() {
-        return buyAsset;
-    }
-
-    public void setBuyAsset(BuyAsset buyAsset) {
-        this.buyAsset = buyAsset;
-    }
-
-    public SellAsset getSellAsset() {
-        return sellAsset;
-    }
-
-    public void setSellAsset(SellAsset sellAsset) {
-        this.sellAsset = sellAsset;
+    public void setUserWallet(Wallet userWallet) {
+        this.userWallet = userWallet;
     }
 
     public Resources getResources() {
