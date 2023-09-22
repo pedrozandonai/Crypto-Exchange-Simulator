@@ -1,6 +1,6 @@
 # Crypto Exchange Simulator - RESTful Java API
 
-Crypto Exchange Simulator is a project designed to simulate cryptocurrency exchange operations. It is a Java Spring Boot application that you can add to your portfolio to showcase your skills in building financial software. Below, we'll explore the functionalities, use cases, and methods provided by this project.
+Crypto Exchange Simulator is a project designed to simulate cryptocurrency exchange operatio, it is a Java Spring Boot application. Below, we'll explore the functionalities, use cases, and methods provided by this project.
 
 ## Table of Contents
 - [Features](#features)
@@ -254,7 +254,4 @@ class User {
   Resources ..> Resources: <<create>>
   Taxes ..> Taxes: <<create>>
 ````
-
-Feel free to explore and modify the code to customize the project as needed for your portfolio. Enjoy showcasing your skills with this Crypto Exchange Simulator project!
-
 **Developed and maintained by: [@pedrozandonai](https://github.com/pedrozandonai)**
