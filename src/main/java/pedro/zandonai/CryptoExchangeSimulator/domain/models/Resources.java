@@ -10,7 +10,6 @@ public class Resources {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private boolean allDaySupport;
     private boolean levaregeTrading;
     private boolean affiliateProgram;

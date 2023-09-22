@@ -1,16 +1,15 @@
 package pedro.zandonai.CryptoExchangeSimulator.domain.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity(name = "tb_assets")
 public class Asset {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
     private String name;
+    @Column(unique = true)
     private String ticker;
     private int quantity;
     private double price;
