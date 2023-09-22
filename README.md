@@ -85,8 +85,6 @@ Crypto Exchange Simulator API is documented using Swagger, which provides an int
 
 Swagger makes it easy for both developers and users to understand and interact with your API. Feel free to explore the available endpoints, try out different requests, and familiarize yourself with the API's capabilities using Swagger.
 
-![Swagger UI](swagger-ui.png)
-
 Enjoy using Swagger to interact with the Crypto Exchange Simulator API!
 
 ## Methods and Interfaces<a name="methods-and-interfaces"></a>
